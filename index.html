@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Easy HTTPS for your private networks</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css" />
+  	<link rel="stylesheet" href="/static/prism.css" />
+
+    <style>
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+    </style>
+
+  </head>
+  <body>
+
+<section class="hero is-dark">
+  <!-- Hero head: will stick at the top -->
+  <div class="hero-head">
+    <nav class="navbar">
+      <div class="container">
+        <div id="navbarMenuHeroA" class="navbar-menu">
+          <a class="navbar-item" href="https://console.getlocalcert.net">
+            Console
+          </a>
+          <a class="navbar-item" href="https://docs.getlocalcert.net">
+            Documentation
+          </a>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <div class="hero-body">
+    <div class="container has-text-centered">
+
+      <p class="subtitle is-2">
+        Easy HTTPS for your private networks
+      </p>
+      <p class="block">
+      <a class="button is-large is-link" href="https://console.getlocalcert.net/">Get Started</a>
+      <a class="button is-large is-secondary ml-5" href="https://docs.getlocalcert.net/">Learn More</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="hero is-light">
+  <div class="hero-body">
+      <p class="block is-size-5">
+        <i>
+        getlocalcert
+        </i>
+        offers free subdomains rooted in the public DNS which are suitable for hosting internal applications.
+        The managed DNS service is compatible with Let's Encrypt, allowing issuance of free certificates.
+        Read more about our <u><a href="https://docs.getlocalcert.net/security/">security-first</a></u> and <u><a href="https://docs.getlocalcert.net/">developer-friendly</a></u> design.
+      </p>
+  </div>
+</section>
+
+<section class="hero is-medium">
+  <div class="hero-body">
+    <img src="/static/Overview.png" class="center">
+  </div>
+</section>
+
+
+<section class="hero">
+  <div class="hero-body">
+  <div class="notification is-warning">
+    <div class="container has-text-centered">
+    <h3 class="title is-5">
+    This service is currently available for early access
+    </h3>
+    Look out for missing features and please contact us about any bugs you encounter.
+    </div>
+  </div>
+
+  <p class="block has-text-centered">
+  <a class="button is-large is-primary" href="https://console.getlocalcert.net/">Get Started</a>
+  </p>
+
+  </div>
+</section>
+
+
+<section class="hero is-dark">
+  <div class="hero-body">
+
+    <h3 class="title is-3">ACME Client Configuration</h3>
+
+<div class="columns">
+  <div class="section column">
+    <h2 class="title is-3">Using Caddy</h2>
+
+    <p class="block is-size-4">
+    Modern, all-in-one web server
+    </p>
+
+    <div class="content">
+    Edit Caddyfile:
+    <!-- https://github.com/caddy-dns/acmedns -->
+    <pre class="language-plain"><code>
+...
+tls {
+	dns acmedns /path/to/credentials.json
+}
+...</code></pre>
+
+    <a href="https://docs.getlocalcert.net/acme-clients/caddy/" class="button is-link">See full example</a>
+
+    </div>
+  </div>
+
+  <div class="section column">
+    <h2 class="title is-3">Using traefik</h2>
+    <p class="block is-size-4">
+    Cloud-native application proxy
+    </p>
+    <div class="content">
+    Edit configuration:
+    <pre class="language-yaml"><code>
+certificatesResolvers:
+  myresolver:
+    acme:
+      dnsChallenge:
+        provider: acme-dns</code></pre>
+
+    <a href="https://docs.getlocalcert.net/acme-clients/traefik/" class="button is-link">See full example</a>
+    </div>
+  </div>
+
+</div>
+<div class="columns">
+
+  <div class="section column">
+    <h2 class="title is-3">Using cert-manager</h2>
+
+    <p class="block is-size-4">
+    Certificate automation for Kubernetes
+    </p>
+
+    <div class="content">
+    Edit configuration:
+    <pre class="language-yaml"><code>
+apiVersion: cert-manager.io/v1
+kind: Issuer
+metadata:
+  name: example-issuer
+spec:
+  acme:
+    solvers:
+    - dns01:
+        acmeDNS:
+          host: https://api.getlocalcert.net/acmedns-api-v1/
+          accountSecretRef:
+            name: acme-dns
+            key: acmedns.json</code></pre>
+
+    <a href="https://docs.getlocalcert.net/acme-clients/cert-manager/" class="button is-link">See full example</a>
+
+    </div>
+  </div>
+
+  <div class="section column">
+    <h2 class="title is-3">Using acme.sh</h2>
+
+    <p class="block is-size-4">
+    Get started quickly
+    </p>
+
+    <div class="content">
+    <pre class="language-shell-session"><code>
+$ export ACMEDNS_BASE_URL=https://api.getlocalcert.net/acmedns-api-v1/
+$ export ACMEDNS_USERNAME=yourApiKeyId
+$ export ACMEDNS_PASSWORD=yourApiKeySecret
+$ export ACMEDNS_SUBDOMAIN=yoursubdomain
+$ ./acme.sh --issue \
+            --dns dns_acmedns \
+            -d yoursubdomain.localhostcert.net</code></pre>
+    <a href="https://docs.getlocalcert.net/acme-clients/acme-sh/" class="button is-link">See full example</a>
+    </div>
+  </div>
+
+
+
+</div>
+
+<div class="columns">
+
+  <div class="section column">
+    <h2 class="title is-3">Using LEGO</h2>
+
+    <p class="block is-size-4">
+    A client build by Let's Encrypt
+    </p>
+
+    <div class="content">
+    <pre class="language-shell-session"><code>
+$ export ACME_DNS_API_BASE=https://api.getlocalcert.net/acmedns-api-v1/
+$ lego --email you@example.com \
+       --dns acme-dns \
+       --domains yoursubdomain.localhostcert.net \
+       run</code></pre>
+    <a href="https://docs.getlocalcert.net/acme-clients/lego/" class="button is-link">See full example</a>
+    </div>
+    <div class="block"></div>
+  </div>
+
+  <div class="section column">
+    <h2 class="title is-3">Certify The Web</h2>
+
+    <p class="block is-size-4">
+    Manage certificates on Windows and IIS
+    </p>
+
+    <div class="content">
+      <pre class="language-markdown"><code>
+1. Select acme-dns as the DNS update method.
+2. Enter https://api.getlocalcert.net/acmedns-api-v1/ as the server
+3. Click Request Certificate
+4. Skip the CNAME step, you won't need it
+      </code></pre>
+      <a href="https://docs.getlocalcert.net/acme-clients/certify-the-web/" class="button is-link">See full example</a>
+    </div>
+  </div>
+
+</div>
+
+    <section class="section is-medium">
+      <p class="block">
+      <h3 class="subtitle is-4 has-text-centered">
+        Ready to set up your free domain name?
+      </h3>
+      </p>
+      <p class="block has-text-centered">
+      <a class="button is-large is-light" href="https://console.getlocalcert.net/">Get Started</a>
+      </p>
+    </section>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="has-text-centered">
+    <p>
+    🦕 🦖
+    </p>
+    <p>
+    <a href="https://console.getlocalcert.net/">Console</a>
+    </p>
+    <p>
+    <a href="https://docs.getlocalcert.net/">Documentation</a>
+    </p>
+    <p>
+      <strong>getlocalcert.net</strong> by <a href="https://robalexdev.com/">robalexdev</a>
+    </p>
+    <p>
+      &copy; 2023
+    </p>
+  </div>
+</footer>
+
+
+	<script async src="/static/prism.js"></script>
+  <script data-goatcounter="https://getlocalcert-net.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+  </body>
+</html>
