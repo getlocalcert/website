@@ -104,11 +104,13 @@
     Edit Caddyfile:
     <!-- https://github.com/caddy-dns/acmedns -->
     <pre class="language-plain"><code>
-...
-tls {
-	dns acmedns /path/to/credentials.json
+<yourSubdomain>.localhostcert.net {
+  tls {
+    dns acmedns credentials.json
+  }
+  respond "Hello"
 }
-...</code></pre>
+</code></pre>
 
     <a href="https://docs.getlocalcert.net/acme-clients/caddy/" class="button is-link">See full example</a>
 
@@ -158,7 +160,7 @@ spec:
           host: https://api.getlocalcert.net/api/acmedns/v1
           accountSecretRef:
             name: acme-dns
-            key: acmedns.json</code></pre>
+            key: credentials.json</code></pre>
 
     <a href="https://docs.getlocalcert.net/acme-clients/cert-manager/" class="button is-link">See full example</a>
 
@@ -201,6 +203,7 @@ $ ./acme.sh --issue \
     <div class="content">
     <pre class="language-shell-session"><code>
 $ export ACME_DNS_API_BASE=https://api.getlocalcert.net/api/acmedns/v1
+$ export ACME_DNS_STORAGE_PATH=credentials.json
 $ lego --email you@example.com \
        --dns acme-dns \
        --domains yoursubdomain.localhostcert.net \
