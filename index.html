@@ -157,7 +157,7 @@ spec:
     solvers:
     - dns01:
         acmeDNS:
-          host: https://api.getlocalcert.net/api/acmedns/v1
+          host: https://api.getlocalcert.net/api/v1/acme-dns-compat
           accountSecretRef:
             name: acme-dns
             key: credentials.json</code></pre>
@@ -176,7 +176,7 @@ spec:
 
     <div class="content">
     <pre class="language-shell-session"><code>
-$ export ACMEDNS_BASE_URL=https://api.getlocalcert.net/api/acmedns/v1
+$ export ACMEDNS_BASE_URL=https://api.getlocalcert.net/api/v1/acme-dns-compat
 $ export ACMEDNS_USERNAME=yourApiKeyId
 $ export ACMEDNS_PASSWORD=yourApiKeySecret
 $ export ACMEDNS_SUBDOMAIN=yoursubdomain
@@ -202,7 +202,7 @@ $ ./acme.sh --issue \
 
     <div class="content">
     <pre class="language-shell-session"><code>
-$ export ACME_DNS_API_BASE=https://api.getlocalcert.net/api/acmedns/v1
+$ export ACME_DNS_API_BASE=https://api.getlocalcert.net/api/v1/acme-dns-compat
 $ export ACME_DNS_STORAGE_PATH=credentials.json
 $ lego --email you@example.com \
        --dns acme-dns \
@@ -223,7 +223,7 @@ $ lego --email you@example.com \
     <div class="content">
       <pre class="language-markdown"><code>
 1. Select acme-dns as the DNS update method.
-2. Enter https://api.getlocalcert.net/api/acmedns/v1 as the server
+2. Enter https://api.getlocalcert.net/api/v1/acme-dns-compat as the server
 3. Click Request Certificate
 4. Skip the CNAME step, you won't need it
       </code></pre>
