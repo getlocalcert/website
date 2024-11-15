@@ -1,92 +1,98 @@
 <!DOCTYPE html>
 <html lang="en" class="theme-light">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="getlocalcert helps you manage HTTPS on private, local, and internal networks with free subdomains">
-    <title>Easy HTTPS for your private networks</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
-  	<link rel="stylesheet" href="/static/prism.css" />
 
-    <link rel="icon" href="/static/logo-32x32.ico" sizes="any"><!-- 32×32 -->
-    <link rel="icon" href="/static/logo.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/static/logo-180x180.png"><!-- 180×180 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="getlocalcert helps you manage HTTPS on private, local, and internal networks with free subdomains">
+  <title>Easy HTTPS for your private networks</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css" />
+  <link rel="stylesheet" href="/static/prism.css" />
 
-    <style>
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-    </style>
+  <link rel="icon" href="/static/logo-32x32.ico" sizes="any"><!-- 32×32 -->
+  <link rel="icon" href="/static/logo.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/static/logo-180x180.png"><!-- 180×180 -->
 
-  </head>
-  <body>
+  <style>
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
 
-<section class="hero is-dark">
-  <!-- Hero head: will stick at the top -->
-  <div class="hero-head">
-    <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
-      <div class="container">
-        <div id="navbarMenuHeroA" class="navbar-menu">
-          <a class="navbar-item" href="https://console.getlocalcert.net">
-            Console
-          </a>
-          <a class="navbar-item" href="https://docs.getlocalcert.net">
-            Documentation
-          </a>
+  <script defer data-domain="getlocalcert.net" src="https://analytics.hrsn.net/js/script.js"></script>
+</head>
+
+<body>
+
+  <section class="hero is-dark">
+    <!-- Hero head: will stick at the top -->
+    <div class="hero-head">
+      <nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+        <div class="container">
+          <div id="navbarMenuHeroA" class="navbar-menu">
+            <a class="navbar-item" href="https://console.getlocalcert.net">
+              Console
+            </a>
+            <a class="navbar-item" href="https://docs.getlocalcert.net">
+              Documentation
+            </a>
+          </div>
         </div>
-      </div>
-    </nav>
-  </div>
-  <div class="hero-body">
-    <div class="container has-text-centered">
+      </nav>
+    </div>
+    <div class="hero-body">
+      <div class="container has-text-centered">
 
-      <h1 class="subtitle is-2">
-        Easy HTTPS for your private networks
-      </h1>
-      <p class="block">
-      <a class="button is-large is-link m-2" href="https://console.getlocalcert.net/">Get Started</a>
-      <a class="button is-large is-secondary m-2" href="https://docs.getlocalcert.net/">Learn More</a>
+        <h1 class="subtitle is-2">
+          Easy HTTPS for your private networks
+        </h1>
+        <p class="block">
+          <a class="button is-large is-link m-2" href="https://console.getlocalcert.net/">Get Started</a>
+          <a class="button is-large is-secondary m-2" href="https://docs.getlocalcert.net/">Learn More</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero is-light is-medium">
+    <div class="hero-body">
+      <p class="block is-size-5 has-text-centered">
+        <img src="/static/logo.svg" style="width: 6em;">
+      </p>
+
+      <p class="block is-size-5">
+        We're laser focused on making it easier to get a globally valid HTTPS certificate you can use within your
+        private network.
+        <i>
+          getlocalcert
+        </i>
+        offers free subdomains which are suitable for hosting internal applications.
+        The managed DNS service is compatible with Let's Encrypt, allowing issuance of free certificates.
+        Read more about our <u><a href="https://docs.getlocalcert.net/security/">security-first</a></u> and <u><a
+            href="https://docs.getlocalcert.net/">developer-friendly</a></u> design.
       </p>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="hero is-light is-medium">
-  <div class="hero-body">
-    <p class="block is-size-5 has-text-centered">
-    <img src="/static/logo.svg" style="width: 6em;">
-    </p>
+  <section class="hero is-dark">
+    <div class="hero-body">
+      <h2 class="title is-3">ACME Client Configuration</h2>
 
-    <p class="block is-size-5">
-      We're laser focused on making it easier to get a globally valid HTTPS certificate you can use within your private network.
-      <i>
-      getlocalcert
-      </i>
-      offers free subdomains which are suitable for hosting internal applications.
-      The managed DNS service is compatible with Let's Encrypt, allowing issuance of free certificates.
-      Read more about our <u><a href="https://docs.getlocalcert.net/security/">security-first</a></u> and <u><a href="https://docs.getlocalcert.net/">developer-friendly</a></u> design.
-    </p>
-  </div>
-</section>
+      <div class="columns">
+        <div class="section column">
+          <h3 class="title is-3">Using Caddy</h3>
 
-<section class="hero is-dark">
-  <div class="hero-body">
-    <h2 class="title is-3">ACME Client Configuration</h2>
+          <p class="block is-size-4">
+            Modern, all-in-one web server
+          </p>
 
-<div class="columns">
-  <div class="section column">
-    <h3 class="title is-3">Using Caddy</h3>
-
-    <p class="block is-size-4">
-    Modern, all-in-one web server
-    </p>
-
-    <div class="content">
-    Edit Caddyfile:
-    <!-- https://github.com/caddy-dns/acmedns -->
-    <pre class="language-plain"><code>
+          <div class="content">
+            Edit Caddyfile:
+            <!-- https://github.com/caddy-dns/acmedns -->
+            <pre class="language-plain"><code>
 <yourSubdomain>.localhostcert.net {
   tls {
     dns acmedns credentials.json
@@ -95,42 +101,42 @@
 }
 </code></pre>
 
-    <a href="https://docs.getlocalcert.net/acme-clients/caddy/" class="button is-link">See full example</a>
+            <a href="https://docs.getlocalcert.net/acme-clients/caddy/" class="button is-link">See full example</a>
 
-    </div>
-  </div>
+          </div>
+        </div>
 
-  <div class="section column">
-    <h3 class="title is-3">Using traefik</h3>
-    <p class="block is-size-4">
-    Cloud-native application proxy
-    </p>
-    <div class="content">
-    Edit configuration:
-    <pre class="language-yaml"><code>
+        <div class="section column">
+          <h3 class="title is-3">Using traefik</h3>
+          <p class="block is-size-4">
+            Cloud-native application proxy
+          </p>
+          <div class="content">
+            Edit configuration:
+            <pre class="language-yaml"><code>
 certificatesResolvers:
   myresolver:
     acme:
       dnsChallenge:
         provider: acme-dns</code></pre>
 
-    <a href="https://docs.getlocalcert.net/acme-clients/traefik/" class="button is-link">See full example</a>
-    </div>
-  </div>
+            <a href="https://docs.getlocalcert.net/acme-clients/traefik/" class="button is-link">See full example</a>
+          </div>
+        </div>
 
-</div>
-<div class="columns">
+      </div>
+      <div class="columns">
 
-  <div class="section column">
-    <h3 class="title is-3">Using cert-manager</h3>
+        <div class="section column">
+          <h3 class="title is-3">Using cert-manager</h3>
 
-    <p class="block is-size-4">
-    Certificate automation for Kubernetes
-    </p>
+          <p class="block is-size-4">
+            Certificate automation for Kubernetes
+          </p>
 
-    <div class="content">
-    Edit configuration:
-    <pre class="language-yaml"><code>
+          <div class="content">
+            Edit configuration:
+            <pre class="language-yaml"><code>
 apiVersion: cert-manager.io/v1
 kind: Issuer
 metadata:
@@ -145,20 +151,21 @@ spec:
             name: acme-dns
             key: credentials.json</code></pre>
 
-    <a href="https://docs.getlocalcert.net/acme-clients/cert-manager/" class="button is-link">See full example</a>
+            <a href="https://docs.getlocalcert.net/acme-clients/cert-manager/" class="button is-link">See full
+              example</a>
 
-    </div>
-  </div>
+          </div>
+        </div>
 
-  <div class="section column">
-    <h3 class="title is-3">Using acme.sh</h3>
+        <div class="section column">
+          <h3 class="title is-3">Using acme.sh</h3>
 
-    <p class="block is-size-4">
-    Get started quickly
-    </p>
+          <p class="block is-size-4">
+            Get started quickly
+          </p>
 
-    <div class="content">
-    <pre class="language-shell-session"><code>
+          <div class="content">
+            <pre class="language-shell-session"><code>
 $ export ACMEDNS_BASE_URL=https://api.getlocalcert.net/api/v1/acme-dns-compat
 $ export ACMEDNS_USERNAME=yourApiKeyId
 $ export ACMEDNS_PASSWORD=yourApiKeySecret
@@ -166,98 +173,100 @@ $ export ACMEDNS_SUBDOMAIN=yoursubdomain
 $ ./acme.sh --issue \
             --dns dns_acmedns \
             -d yoursubdomain.localhostcert.net</code></pre>
-    <a href="https://docs.getlocalcert.net/acme-clients/acme-sh/" class="button is-link">See full example</a>
-    </div>
-  </div>
+            <a href="https://docs.getlocalcert.net/acme-clients/acme-sh/" class="button is-link">See full example</a>
+          </div>
+        </div>
 
 
 
-</div>
+      </div>
 
-<div class="columns">
+      <div class="columns">
 
-  <div class="section column">
-    <h3 class="title is-3">Using LEGO</h3>
+        <div class="section column">
+          <h3 class="title is-3">Using LEGO</h3>
 
-    <p class="block is-size-4">
-    A client build by Let's Encrypt
-    </p>
+          <p class="block is-size-4">
+            A client build by Let's Encrypt
+          </p>
 
-    <div class="content">
-    <pre class="language-shell-session"><code>
+          <div class="content">
+            <pre class="language-shell-session"><code>
 $ export ACME_DNS_API_BASE=https://api.getlocalcert.net/api/v1/acme-dns-compat
 $ export ACME_DNS_STORAGE_PATH=credentials.json
 $ lego --email you@example.com \
        --dns acme-dns \
        --domains yoursubdomain.localhostcert.net \
        run</code></pre>
-    <a href="https://docs.getlocalcert.net/acme-clients/lego/" class="button is-link">See full example</a>
-    </div>
-    <div class="block"></div>
-  </div>
+            <a href="https://docs.getlocalcert.net/acme-clients/lego/" class="button is-link">See full example</a>
+          </div>
+          <div class="block"></div>
+        </div>
 
-  <div class="section column">
-    <h3 class="title is-3">Certify The Web</h3>
+        <div class="section column">
+          <h3 class="title is-3">Certify The Web</h3>
 
-    <p class="block is-size-4">
-    Manage certificates on Windows and IIS
-    </p>
+          <p class="block is-size-4">
+            Manage certificates on Windows and IIS
+          </p>
 
-    <div class="content">
-      <pre class="language-markdown"><code>
+          <div class="content">
+            <pre class="language-markdown"><code>
 1. Select acme-dns as the DNS update method.
 2. Enter https://api.getlocalcert.net/api/v1/acme-dns-compat as the server
 3. Click Request Certificate
 4. Skip the CNAME step, you won't need it
       </code></pre>
-      <a href="https://docs.getlocalcert.net/acme-clients/certify-the-web/" class="button is-link">See full example</a>
+            <a href="https://docs.getlocalcert.net/acme-clients/certify-the-web/" class="button is-link">See full
+              example</a>
+          </div>
+        </div>
+
+      </div>
+
+      <section class="section is-medium">
+        <p class="block">
+        <h2 class="subtitle is-4 has-text-centered">
+          Ready to set up your free domain name?
+          </h3>
+          </p>
+          <p class="block has-text-centered">
+            <a class="button is-large is-light" href="https://console.getlocalcert.net/">Get Started</a>
+          </p>
+      </section>
     </div>
-  </div>
+  </section>
 
-</div>
-
-    <section class="section is-medium">
-      <p class="block">
-      <h2 class="subtitle is-4 has-text-centered">
-        Ready to set up your free domain name?
-      </h3>
+  <footer class="footer">
+    <div class="has-text-centered">
+      <p>
+        <span title="long time no see">🦕 </span>
+        <span title="what have you been up to?"> 🦖</span>
       </p>
-      <p class="block has-text-centered">
-      <a class="button is-large is-light" href="https://console.getlocalcert.net/">Get Started</a>
+      <p>
+        <a href="https://console.getlocalcert.net/">Console</a>
       </p>
-    </section>
-  </div>
-</section>
+      <p>
+        <a href="https://docs.getlocalcert.net/">Documentation</a>
+      </p>
+      <p>
+        <a href="https://docs.getlocalcert.net/privacy/">Privacy Policy</a>
+      </p>
+      <p>
+        <a href="mailto:abuse@getlocalcert.net">Report Abuse</a>
+      </p>
+      <p>
+        <strong>getlocalcert.net</strong> by <a href="https://robalexdev.com/">robalexdev</a>
+      </p>
+      <p>
+        &copy; 2023-2024
+      </p>
+    </div>
+  </footer>
 
-<footer class="footer">
-  <div class="has-text-centered">
-    <p>
-    <span title="long time no see">🦕 </span>
-    <span title="what have you been up to?"> 🦖</span>
-    </p>
-    <p>
-    <a href="https://console.getlocalcert.net/">Console</a>
-    </p>
-    <p>
-    <a href="https://docs.getlocalcert.net/">Documentation</a>
-    </p>
-    <p>
-    <a href="https://docs.getlocalcert.net/privacy/">Privacy Policy</a>
-    </p>
-    <p>
-    <a href="mailto:abuse@getlocalcert.net">Report Abuse</a>
-    </p>
-    <p>
-      <strong>getlocalcert.net</strong> by <a href="https://robalexdev.com/">robalexdev</a>
-    </p>
-    <p>
-      &copy; 2023-2024
-    </p>
-  </div>
-</footer>
-
-	<script async src="/static/prism.js"></script>
+  <script async src="/static/prism.js"></script>
   <script data-goatcounter="https://getlocalcert-net.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 
-  </body>
+</body>
+
 </html>
