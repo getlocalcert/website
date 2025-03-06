@@ -1,2 +1,2 @@
 # localcert.net
-The landing page for GetLocalCert.
+The landing page for LocalCert.
